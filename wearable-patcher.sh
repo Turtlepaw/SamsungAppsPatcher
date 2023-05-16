@@ -1,5 +1,5 @@
 #!/bin/bash
-
+export PATH=$PATH:~/android
 set -e
 
 # count taken from https://stackoverflow.com/a/57436073/
