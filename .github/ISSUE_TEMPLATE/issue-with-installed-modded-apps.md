@@ -1,9 +1,9 @@
 ---
 name: Issue with installed modded apps
-about: I'm experiencing a crash or can't connect
+about: I'm experiencing a crash or can't connect to the watch
 title: ''
 labels: android
-assignees: adil192
+assignees: turtlepaw
 
 ---
 
@@ -11,8 +11,8 @@ assignees: adil192
 A clear and concise description of what the bug is.
 
 **Smartphone (please complete the following information)**
- - Device: [e.g. Samsung S20 FE]
- - OS: [e.g. Android 12 / OneUI 4]
+ - Device: [e.g. Xiaomi Pad 6]
+ - OS: [e.g. Android 13 / OneUI 5]
 
 **What (versions of) modded apps have you installed?**
  - [e.g. shealth 6.22.1.053]
@@ -21,7 +21,8 @@ A clear and concise description of what the bug is.
 
 **Unmodded apps**
  - [X] I'm not trying to mix modded and unmodded apps
- - [ ] Have you tried running `wearable-wipe.sh`?
+ - [X] I'm **not** on a rooted phone
+ - [ ] I have ran `wearable-wipe.sh`
 
 **Logs (if possible)**
 Output of `adb logcat -b crash` when crash/error/bug occurs:
