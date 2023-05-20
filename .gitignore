@@ -1,6 +1,6 @@
 patched/
 patched-old/
-originals/*
+originals/
 ignored/ 
 decompiled/
 decompiled_(old)/
