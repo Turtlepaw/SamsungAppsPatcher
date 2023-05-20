@@ -1,42 +1,34 @@
-# Samsung Apps Patcher for Samsung phones with custom ROMs
+# Galaxy Wearable Patcher
 
-This is a guide to patch galaxy wearable apps to work on a modified samsung phone. This was originally taken from an [xda post by dansimko](https://forum.xda-developers.com/t/app-mod-galaxy-wearable-patch-for-samsung-phones-with-custom-roms.4208143/) but I wanted to make it a little easier to follow. I've since scripted the process, kept the patches up to date, and added new patches. The scripts are written for linux in bash, so if you're using something else, you could try the old (manual) guide at https://gist.github.com/adil192/ab95808fb66b6cde3d63ded6c19b0f1d.
+This is an updated version of [adil192's](https://github.com/adil192) archived [Samsung App Patcher](https://github.com/adil192/SamsungAppsPatcher). It used the latest Galaxy Wearable APKs and removes the device restrictions, this is useful if you want to pair your Galaxy Watch to your tablet. ~~It also removes the need of a SIM card for the Samsung Health app~~ (this is coming soon).
 
+> ### Original description from [adil192/SamsungAppPatcher](https://github.com/adil192/SamsungAppsPatcher)
+> *This is a guide to patch galaxy wearable apps to work on a ~~modified samsung phone~~. This was originally taken from an [xda post by dansimko](https://forum.xda-developers.com/t/app-mod-galaxy-wearable-patch-for-samsung-phones-with-custom-roms.4208143/) but I wanted to make it a little easier to follow. I've since scripted the process, kept the patches up to date, and added new patches. The scripts are written for linux in bash, so if you're using something else, you could try the old (manual) guide at https://gist.github.com/adil192/ab95808fb66b6cde3d63ded6c19b0f1d.*
+>
+> [adil192](https://github.com/adil192)
 
-
-## Important notice
-
-| As I've moved on from having a Samsung phone and Samsung accessories, I will no longer be maintaining this project. |
-| ------------------------------------------------------------ |
-
-## March 2023 update
-
-There's a new project that could supercede this one: https://github.com/BlackMesa123/KnoxPatch.
-I haven't tried it myself of course but it's worth checking out
-
-<br /><br /><br /><br /><br /><br /><br />
-
-
+## May 2023 Update
+I've recovered [adil192's](https://github.com/adil192) archived [Samsung App Patcher](https://github.com/adil192/SamsungAppsPatcher) with some fixes. It now uses the latest Galaxy Wearable app and the latest Galaxy Watch 4 plugin.
 
 ## Download pre-patched apps
+| ⚙️ Pre-patched apps coming soon! |
+| ---|
 
-You can find the pre-patched apks at the project website: https://adil.hanney.org/SamsungAppsPatcher/.
+## Compatibility Notice
+- This **is not designed to fix rooted** Samsung phones ([knox patch](https://github.com/BlackMesa123/KnoxPatch) might work)
 
-The platform-tools zip are in the MEGA drive, if you need them to patch your own apps: https://mega.nz/folder/sUFj2C5b#M4zEP-c9ylY-ENxPw7qCUQ.
+## APK Mirror Links
 
-
-
-## App support
-
-These are the apps that <s>probably work</s> (please check the [project website](https://adil.hanney.org/SamsungAppsPatcher/) for compatibility ratings) along with a link to apkmirror where you can download an **unpatched** apk. Please note that I cannot test the majority of the plugins because I don't have the devices myself, and no longer use my Galaxy Watch regularly.
-
-### Core
+<details>
+<summary>Core</summary>
 
 1. accessoryservice.apk | [Samsung Accessory Service](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/samsung-accessory-service/)
 2. shealth.apk | [Samsung Health](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/s-health/)
 3. wearable.apk | [Galaxy Wearable](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/samsung-gear/)
+</details>
+<details>
 
-### Watch plugins
+<summary>Watch Plugins</summary>
 
 1. watchplugin.apk | [Galaxy Watch Plugin](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/galaxy-watch-plugin/)
 2. watch3plugin.apk | [Galaxy Watch3 Plugin](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/galaxy-watch3-plugin/)
@@ -46,31 +38,23 @@ These are the apps that <s>probably work</s> (please check the [project website]
 4. gearfit2plugin.apk | [Gear Fit2 Plugin](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/gear-fit2-plugin/)
 5. gearsportplugin.apk | [Gear S Plugin ](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/gear-s-plugin/)
 6. Other watches: Watch plugins that integrate with Samsung Health verify their certificate so they won't work without a specific custom certificate patch (there's a section below on how to patch it yourself).
+</details>
 
-### Other plugins
-
-1. budsplugin.apk | [Galaxy Buds Manager](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/galaxy-buds-plugin/)
-2. budsproplugin.apk | [Galaxy Buds Pro Manager](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/galaxy-buds-pro/)
-3. buds2plugin.apk | [Galaxy Buds2 Manager](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/galaxy-buds2/)
-4. budsplusplugin.apk | [Galaxy Buds+ Manager](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/galaxy-buds-plugin-2/)
-5. budsliveplugin.apk | [Galaxy Buds Live Manager](https://www.apkmirror.com/apk/samsung-electronics-co-ltd/galaxy-buds-live-plugin/)
-5. Other plugins: These will most likely work without any customised patches needed. Just run the apk through `./wearable-patcher.sh`.
-
-
+## Guide Notice
+| ⚠️ The guides have not been updated yet! |
+| --- |
 
 ## How to use the scripts
 
 0. Make sure your system satisfies the requirements (below) first.
-1. Download the unpatched apks of the three core apps and any plugins you need. You can find the links in the [App support](https://github.com/adil192/SamsungAppsPatcher#app-support) section. Save these into the `SamsungAppsPatcher/originals` folder. Feel free to delete the dummy apks first as they're just there to make sure you name your downloaded apks correctly.
+1. Download the unpatched apks of the three core apps and any plugins you need. You can find the links in the [Official APKs](#official-apks) section. Save these into the `SamsungAppsPatcher/originals` folder. Feel free to delete the dummy apks first as they're just there to make sure you name your downloaded apks correctly.
 2. Open a terminal in the `SamsungAppsPatcher` folder. Run `./wearable-patcher.sh` to automatically patch all the apps from the `SamsungAppsPatcher/originals` folder.
    - Sidenote: you can also patch a specific app like this: `./wearable-patcher.sh shealth`.
 3. Install the patched apks! You can do this with the `./wearable-installer.sh` script to batch install them, or just install them regularly. However, you will need to uninstall the old apps (signed by Samsung) before you can use the modded apps with a custom signature: `./wearable-wipe.sh` (not necessary if you've already got the modded apps installed).
 
-
-
 ## Requirements
 
-1. Install apktool. You can find the official instructions [here](https://ibotpeaches.github.io/Apktool/install/). If you're on Pop OS like me, the apktool you install through apt is out of date (you'll want at least 2.6.0) so make sure to follow those instructions.
+1. Install apktool. You can find the official instructions [here](https://ibotpeaches.github.io/Apktool/install/). If you're on Ubuntu or something like that, the apt package is out of date (you'll want at least v2.7.0) so make sure to follow those instructions.
 
 2. If you don't want to use my keystore, install Android Studio. You could also generate a keystore without Android Studio and I've linked a guide for that later. I recommend that you use the provided keystore so you can update between your patched apps and mine without losing data.
 

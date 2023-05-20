@@ -1,3 +1,7 @@
-decompiled/
 patched/
-originals/
+patched-old/
+originals/*
+ignored/ 
+decompiled/
+decompiled_(old)/
+old/

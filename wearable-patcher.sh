@@ -34,6 +34,16 @@ patchapk(){
       find . -type f -name "*.xml" -exec sed -i 's/com\.osp\.app\.signin/com.notsamsung.dummy/g' "{}" \;
       find . -type f -name "*.smali" -exec sed -i 's/com\.osp\.app\.signin/com.notsamsung.dummy/g' "{}" \;
 
+      cecho "GREEN" "    patching android stuff in ${app}"
+      # change @android/ui to @*android/ui since it was crashing the script
+      find . -type f -name "*.xml" -exec sed -i 's/@android/@*android/g' "{}" \;
+      # remove android:previewLayout which seems to be crashing the script
+      find . -type f -name "*.xml" -exec sed -i "s/android:previewLayout=\"[^\"]*\"//g" "{}" \;
+
+      cecho "GREEN" "    patching android manifest in ${app}"
+      # apktool doesn't seem to like the "usesPermissionFlags" property
+      find . -type f -name "AndroidManifest.xml" -exec sed -i 's/android:usesPermissionFlags="0x00010000"//g' "{}" \;
+
       # Use any patches we find that start with $app
       for patch in ../../patches/${app}[\_\-\.]*.patch; do
         if [[ -f $patch ]]; then
@@ -81,7 +91,7 @@ sudo apt install zipalign"
 }
 
 
-
+rm -rf patched
 mkdir -p patched
 mkdir -p decompiled
 
@@ -149,6 +159,6 @@ else
   if [ $NO_PATCH == 0 ]; then
     echo 'Find all patched apps in the "patched" folder'
   else
-    echo 'Find all decompiled apps in the "decompiled" folder'
+    echo 'Find all decompiled apps  in the "decompiled" folder'
   fi
 fi

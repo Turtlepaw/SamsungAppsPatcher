@@ -124,6 +124,3 @@
 -    return p0
 +    return v0
  .end method
- 
- .method public static removeBond(Landroid/bluetooth/BluetoothDevice;)Z
-
