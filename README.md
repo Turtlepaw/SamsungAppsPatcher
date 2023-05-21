@@ -7,9 +7,6 @@ This is an updated version of [adil192's](https://github.com/adil192) archived [
 >
 > [adil192](https://github.com/adil192)
 
-## May 2023 Update
-I've recovered [adil192's](https://github.com/adil192) archived [Samsung App Patcher](https://github.com/adil192/SamsungAppsPatcher) with some fixes. It now uses the latest Galaxy Wearable app and the latest Galaxy Watch 4 plugin.
-
 ## Download pre-patched apps
 | ⚙️ Pre-patched apps coming soon! |
 | ---|
