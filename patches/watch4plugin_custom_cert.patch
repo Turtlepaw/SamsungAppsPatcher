@@ -1,55 +1,55 @@
 --- smali_classes2/com/google/android/gms/common/zzx.smali
 +++ smali_classes2/com/google/android/gms/common/zzx.smali
-@@ -214,43 +214,4 @@
+@@ -212,46 +212,7 @@
+ .end method
 
-     .method final zze()V
--   .locals 3
+ .method final zze()V
+-    .locals 3
 -
--   .line 1
--   iget-boolean v0, p0, Lcom/google/android/gms/common/zzx;->zza:Z
+-    .line 1
+-    iget-boolean v0, p0, Lcom/google/android/gms/common/zzx;->zza:Z
 -
--   if-nez v0, :cond_1
+-    if-nez v0, :cond_1
 -
--   const/4 v0, 0x3
+-    const/4 v0, 0x3
 -
--   const-string v1, "GoogleCertificatesRslt"
+-    const-string v1, "GoogleCertificatesRslt"
 -
--   invoke-static {v1, v0}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+-    invoke-static {v1, v0}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
 -
--   move-result v0
+-    move-result v0
 -
--   if-eqz v0, :cond_1
+-    if-eqz v0, :cond_1
 -
--   iget-object v0, p0, Lcom/google/android/gms/common/zzx;->zzc:Ljava/lang/Throwable;
+-    iget-object v0, p0, Lcom/google/android/gms/common/zzx;->zzc:Ljava/lang/Throwable;
 -
--   if-eqz v0, :cond_0
+-    if-eqz v0, :cond_0
 -
--   .line 2
--   invoke-virtual {p0}, Lcom/google/android/gms/common/zzx;->zza()Ljava/lang/String;
+-    .line 2
+-    invoke-virtual {p0}, Lcom/google/android/gms/common/zzx;->zza()Ljava/lang/String;
 -
--   move-result-object v0
+-    move-result-object v0
 -
--   iget-object v2, p0, Lcom/google/android/gms/common/zzx;->zzc:Ljava/lang/Throwable;
+-    iget-object v2, p0, Lcom/google/android/gms/common/zzx;->zzc:Ljava/lang/Throwable;
 -
--   invoke-static {v1, v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+-    invoke-static {v1, v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 -
--   return-void
+-    return-void
 -
--   .line 3
--   :cond_0
--   invoke-virtual {p0}, Lcom/google/android/gms/common/zzx;->zza()Ljava/lang/String;
+-    .line 3
+-    :cond_0
+-    invoke-virtual {p0}, Lcom/google/android/gms/common/zzx;->zza()Ljava/lang/String;
 -
--   move-result-object v0
+-    move-result-object v0
 -
--   invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+-    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 -
--   :cond_1
--   return-void
-+   .locals 0
+-    :cond_1
++    .locals 0
 +
-+   return-void
-     .end method
-
+     return-void
+ .end method
+ 
 --- smali_classes3/com/samsung/android/aidl/constant/WPMConstant.smali
 +++ smali_classes3/com/samsung/android/aidl/constant/WPMConstant.smali
 @@ -158,6 +158,8 @@
@@ -88,10 +88,10 @@
 
      const/16 v6, 0x1c
 
--    const-string v7, " (SAMSUNG_PLATFORM_KEY(0), SAMSUNG_RELEASE_KEY(1), SAMSUNG_SEP_LITE_PLATFORM_KEY(2))"
-+    const-string v7, " (SAMSUNG_PLATFORM_KEY(0), SAMSUNG_RELEASE_KEY(1), SAMSUNG_SEP_LITE_PLATFORM_KEY(2), CUSTOM_KEY(3))"
+-    const-string v5, " (SAMSUNG_PLATFORM_KEY(0), SAMSUNG_RELEASE_KEY(1), SAMSUNG_SEP_LITE_PLATFORM_KEY(2))"
++    const-string v5, " (SAMSUNG_PLATFORM_KEY(0), SAMSUNG_RELEASE_KEY(1), SAMSUNG_SEP_LITE_PLATFORM_KEY(2), CUSTOM_KEY(3))"
 
-     const-string v8, " is valid. key : "
+     const-string v6, " is valid. key : "
 
 --- smali_classes4/com/samsung/android/companionservice/hiddensetup/WatchBackupServiceInterface.smali
 +++ smali_classes4/com/samsung/android/companionservice/hiddensetup/WatchBackupServiceInterface.smali

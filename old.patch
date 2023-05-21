@@ -1,0 +1,50 @@
+--- smali_classes2/com/google/android/gms/common/zzx.smali
++++ smali_classes2/com/google/android/gms/common/zzx.smali
+@@ -214,43 +214,4 @@
+
+     .method final zze()V
+-   .locals 3
+-
+-   .line 1
+-   iget-boolean v0, p0, Lcom/google/android/gms/common/zzx;->zza:Z
+-
+-   if-nez v0, :cond_1
+-
+-   const/4 v0, 0x3
+-
+-   const-string v1, "GoogleCertificatesRslt"
+-
+-   invoke-static {v1, v0}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+-
+-   move-result v0
+-
+-   if-eqz v0, :cond_1
+-
+-   iget-object v0, p0, Lcom/google/android/gms/common/zzx;->zzc:Ljava/lang/Throwable;
+-
+-   if-eqz v0, :cond_0
+-
+-   .line 2
+-   invoke-virtual {p0}, Lcom/google/android/gms/common/zzx;->zza()Ljava/lang/String;
+-
+-   move-result-object v0
+-
+-   iget-object v2, p0, Lcom/google/android/gms/common/zzx;->zzc:Ljava/lang/Throwable;
+-
+-   invoke-static {v1, v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+-
+-   return-void
+-
+-   .line 3
+-   :cond_0
+-   invoke-virtual {p0}, Lcom/google/android/gms/common/zzx;->zza()Ljava/lang/String;
+-
+-   move-result-object v0
+-
+-   invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+-
+-   :cond_1
+-   return-void
++   .locals 0
++   return-void
+     .end method

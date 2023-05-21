@@ -1,0 +1,133 @@
+--- smali_classes2/com/samsung/android/app/shealth/home/push/t.smali
++++ smali_classes2/com/samsung/android/app/shealth/home/push/t.smali
+@@ -1814,7 +1814,7 @@
+ 
+     move-result v7
+ 
+-    const/4 v8, 0x5
++    const/4 v8, 0x1
+ 
+     if-ne v7, v8, :cond_2
+
+--- smali_classes3/yl/b0.smali
++++ smali_classes3/yl/b0.smali
+@@ -95,7 +95,7 @@
+ 
+     move-result v2
+ 
+-    const/4 v3, 0x5
++    const/4 v3, 0x1
+ 
+     if-ne v2, v3, :cond_4
+
+--- smali_classes2/com/samsung/android/app/shealth/app/helper/b.smali
++++ smali_classes2/com/samsung/android/app/shealth/app/helper/b.smali
+@@ -400,7 +400,7 @@
+ 
+     move-result v1
+ 
+-    const/4 v4, 0x5
++    const/4 v4, 0x1
+ 
+     if-ne v1, v4, :cond_7
+
+@@ -550,7 +550,7 @@
+ 
+     move-result v1
+ 
+-    const/4 v4, 0x5
++    const/4 v4, 0x1
+ 
+     if-ne v1, v4, :cond_1
+
+--- smali_classes4/com/samsung/android/app/shealth/util/z.smali
++++ smali_classes4/com/samsung/android/app/shealth/util/z.smali
+@@ -184,7 +184,7 @@
+ 
+     move-result v0
+ 
+-    const/4 v1, 0x5
++    const/4 v1, 0x1
+ 
+     if-eq v0, v1, :cond_0
+
+--- smali_classes5/com/samsung/android/sdk/healthdata/privileged/util/CountryLookup.smali
++++ smali_classes5/com/samsung/android/sdk/healthdata/privileged/util/CountryLookup.smali
+@@ -89,7 +89,7 @@
+ 
+     move-result v1
+ 
+-    const/4 v2, 0x5
++    const/4 v2, 0x1
+ 
+     if-ne v1, v2, :cond_1
+
+--- smali_classes5/com/samsung/android/sdk/healthdata/privileged/util/CountryLookup.smali
++++ smali_classes5/com/samsung/android/sdk/healthdata/privileged/util/CountryLookup.smali
+@@ -73,9 +73,10 @@
+ 
+     if-eqz v1, :cond_1
+ 
++    .line 5
+     const-string v1, "phone"
+ 
+-    .line 5
++    .line 6
+     invoke-virtual {p0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+ 
+     move-result-object p0
+@@ -84,39 +85,41 @@
+ 
+     if-eqz p0, :cond_1
+ 
+-    .line 6
+-    invoke-virtual {p0}, Landroid/telephony/TelephonyManager;->getSimState()I
+-
+-    move-result v1
+-
+-    const/4 v2, 0x1
+-
+-    if-ne v1, v2, :cond_1
+-
+     .line 7
+-    invoke-virtual {p0}, Landroid/telephony/TelephonyManager;->getSimCountryIso()Ljava/lang/String;
++    const-string v0, ""
++
++    .line 8
++    invoke-virtual {p0}, Landroid/telephony/TelephonyManager;->getNetworkCountryIso()Ljava/lang/String;
+ 
+     move-result-object v0
+ 
+-    .line 8
++    .line 9
+     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+ 
+     move-result p0
+ 
+     if-nez p0, :cond_1
+ 
+-    .line 9
++    .line 10
+     sget-object p0, Ljava/util/Locale;->US:Ljava/util/Locale;
+ 
+     invoke-virtual {v0, p0}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
+ 
+     move-result-object v0
+ 
+-    .line 10
++    .line 11
+     :cond_1
++    if-eqz v0, :cond_2
++
++    .line 12
+     sput-object v0, Lcom/samsung/android/sdk/healthdata/privileged/util/CountryLookup;->sCountryCode:Ljava/lang/String;
+ 
+     return-object v0
++
++    .line 14
++    :cond_2
++    const-string v0, "CA"
++    return-object v0
+ .end method
+ 
+ .method public static getCountryIso()Ljava/lang/String;
